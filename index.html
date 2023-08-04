@@ -14,10 +14,12 @@
     <link rel="stylesheet" href="index.css">
     <link href="https://fonts.cdnfonts.com/css/fondamento" rel="stylesheet">
     <link href="https://fonts.cdnfonts.com/css/cookie" rel="stylesheet">
+    <link href="https://fonts.cdnfonts.com/css/mukta" rel="stylesheet">
     <title>My Now Amazing Webpage</title>
     
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
- 
+    <script type="text/javascript" src="https://code.jquery.com/jquery-1.11.0.min.js"></script>
+
   </head>
   <body>
     <nav id="navegador">
@@ -25,26 +27,31 @@
         <img alt="logo" src="https://dewey.tailorbrands.com/production/brand_version_mockup_image/928/8500027928_dd7f195a-2344-4da5-b22b-650845c6d2bf.png?cb=1690737109" />
       </div>
       <ul>
-        <li><a>HOME</a></li>
-        <li><a>ABOUT US</a></li>
-        <li><a>OUR MENU</a></li>
-        <li><a>REVIEW</a></li>
-        <li><a>CONTACT</a></li>
-        <li><a>BLOG</a></li>
+        <li><a href="#carrusel">HOME</a></li>
+        <li><a href="#about-us">ABOUT US</a></li>
+        <li><a href="#our-menu">OUR MENU</a></li>
+        <li><a href="#review">REVIEW</a></li>
+        <li><a href="#contact">CONTACT</a></li>
+        <li><a href="#footer">BLOG</a></li>
       </ul>
     </nav>
     <main>
-      <div class="carrusel">
+      <div id="carrusel" class="carrusel">
         <div>
           <img src="https://cutesolution.com/html/sushi/assets/img/slider-1.jpg" alt="food1"/>
         </div>
+        
         <div>
-          
+            <div>
+              <h4>TASTY & SPICY RECIPES</h4>
+              <h1>Sushi Food Lovers</h1>
+              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, nostrud consectetur adipiscing elit.</p>
+            </div>
             <button>Check our menu</button>
                    
         </div>        
       </div>
-      <div class="video">
+      <div id="about-us" class="video">
         
           <div class="video1">
             <h3>Welcome To Sushi Resturant</h3>
@@ -82,7 +89,7 @@
           </div>
         
       </div>
-      <div class="propiedades">
+      <section class="propiedades">
         <div>
           <div>
             <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:svgjs="http://svgjs.com/svgjs" version="1.1" width="512" height="512" x="0" y="0" viewBox="0 0 64 64" style="enable-background:new 0 0 512 512" xml:space="preserve">
@@ -138,8 +145,8 @@
             <p>Enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi</p>
           </div>
         </div>
-      </div>
-      <div class="menu">
+      </section>
+      <div id="our-menu" class="menu">
         <div class="menu-select">
           <h3>Tasty & Spicy Recipes</h3>
           <h1>Discover Our Menu</h1>
@@ -168,6 +175,16 @@
           <div>
             <a>
               <img alt="img1" src="https://cutesolution.com/html/sushi/assets/img/gallery/gallery-1.jpg">
+            </a>
+          </div>
+          <div>
+            <a>
+              <img alt="img1" src="https://img.freepik.com/foto-gratis/sushi-pescado-fresco-caviar-rojo_140725-2290.jpg?w=740&t=st=1691144558~exp=1691145158~hmac=bd829e50ca88a4a064024b9c0bc36341608fed52aa1567b6a1ab678c6803f4b6">
+            </a>
+          </div>
+          <div>
+            <a>
+              <img alt="img1" src="https://img.freepik.com/foto-gratis/varios-sushi-bandeja-wasabi-salsa-soja_140725-3966.jpg?w=360&t=st=1691185978~exp=1691186578~hmac=7590faccb62d5c11bb84a643a05066ccd0a82288b53d62de6e0d4043631e8676">
             </a>
           </div>
         </div>
@@ -261,14 +278,14 @@
         </div>
       </section>
 
-      <section class="testimonials">
+      <section id="review" class="testimonials">
         <h3>Our Customer Say</h3>
         <h1>Testimonials</h1>
         <div class="testimonials-slider">
 
         </div>
       </section>
-      <section class="contact-us">
+      <section id="contact" class="contact-us">
         <h3>Get In Touch</h3>
         <h1>Contact Us</h1>
         <div>
@@ -306,7 +323,7 @@
       <iframe id='videoFrame' src="https://www.youtube.com/embed/NTFjleENYEo" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
     </div>
     <div id="toggle" style="display: none">☰</div>
-    <footer>
+    <footer id="footer">
       <p>
         Sushi © 2021 - Designed by Cute Themes.
       </p>
@@ -316,7 +333,6 @@
     <script src="index.js" async defer></script>
       
     
-    <script type="text/javascript" src="https://code.jquery.com/jquery-1.11.0.min.js"></script>
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
 
     

@@ -1,3 +1,5 @@
+ScrollReveal().reveal('.video, .propiedades', { distance: '20px', origin: 'bottom', duration: 500 });
+
 class MenuItem {
   constructor(name, description, price, category) {
     this.name = name;
@@ -14,6 +16,27 @@ const menu = [
   new MenuItem('Smoky salmon', 'Our passion for the excellent food','2.00', 'starter')
   
 ]
+
+function updateActiveLink() {
+  const navbarLinks = document.querySelectorAll('#navegador a');
+  navbarLinks.forEach(link => {
+    const sectionId = link.getAttribute('href').substring(1);
+    
+    const section = document.getElementById(sectionId);
+    
+    const sectionTop = section.offsetTop;
+    console.log(sectionTop)
+    const sectionBottom = sectionTop + section.offsetHeight;
+    const scrollY = window.scrollY;
+
+    if (scrollY >= sectionTop && scrollY < sectionBottom) {
+      link.classList.add('active');
+    } else {
+      link.classList.remove('active');
+    }
+  });
+}
+window.addEventListener('scroll', updateActiveLink);
 
 const menuSelector = document.querySelectorAll('.menu-select > div > div')
 
@@ -38,26 +61,11 @@ menuSelector.forEach( select => {
     select.style.color = 'var(--c-dorado)'
   }
 })
+
 mostrarMenu('starter')
 
 const arrayFakeCarrusel = ["https://cutesolution.com/html/sushi/assets/img/slider-1.jpg", "https://cutesolution.com/html/sushi/assets/img/slider-2.jpg",
 "https://cutesolution.com/html/sushi/assets/img/slider-3.jpg"]
-
-var element = document.querySelector('#navegador');
-
-window.addEventListener('scroll', function() {
-  var scrollPosition = window.scrollY;
-  if (scrollPosition !== 0) {
-    element.style.backgroundColor = 'white'
-    element.style.color = 'black'
-    
-  } else {
-    element.style.backgroundColor = 'transparent'
-    element.style.color = 'white'
-
-  }
-})
-
 
 let secuencia = 0
 setInterval(() => {
@@ -65,11 +73,30 @@ setInterval(() => {
   secuencia++
   const crear = document.createElement("img")
   crear.setAttribute("src",arrayFakeCarrusel[secuencia%3])
-  crear.setAttribute("alt",secuencia%3)
+  crear.setAttribute("alt",secuencia%4)
   remplazarHijo.replaceChild(crear, remplazarHijo.querySelector('img'))
 }, 2000)
 
-ScrollReveal().reveal('.video, .propiedades', { distance: '20px', origin: 'bottom', duration: 500 });
+const elements = document.querySelectorAll('#navegador > ul > li > a');
+const navegador = document.querySelector('#navegador')
+
+window.addEventListener('scroll', function() {
+  var scrollPosition = window.scrollY;
+  if (scrollPosition !== 0) {
+    elements.forEach( element => {
+      element.style.color = 'var(--c-negro-navegador-letter)'
+    })
+    navegador.style.backgroundColor = 'white'    
+  } else {
+    elements.forEach( element => {
+      element.style.color = 'white'
+    })
+    navegador.style.backgroundColor = 'transparent'  
+
+  }
+})
+
+
 
 function mostrarModal(event) {
   const target = event.currentTarget.getAttribute('data-target');
@@ -106,6 +133,18 @@ teamInteraction.forEach(member => {
   member.appendChild(createElement)
 })
 
+function mostrarNavegador() {
+  const navegador = document.querySelector('#navegador')
+  if(navegador.style.display==='flex') {
+    navegador.style.display='none'
+  } else {
+    navegador.style.display='flex'
+  }
+}
+
+const toggle = document.querySelector('#toggle')
+toggle.onclick = mostrarNavegador
+
 function initSlick() {
   var windowWidth = $(window).width();
   var slidesToShow = windowWidth <= 600 ? 1 : windowWidth <= 870 ? 2 : 3;
@@ -122,6 +161,12 @@ function initSlick() {
   });
 }
 
+function setFlexDisplay() {
+  const navegador = document.querySelector('#navegador')
+
+  window.innerWidth >= 1000 ? navegador.classList.add('colapse') : navegador.classList.remove('colapse')
+  
+}
 // Esperar a que se cargue el documento
 $(document).ready(function() {
   // Inicializar el carrusel
@@ -131,7 +176,7 @@ $(document).ready(function() {
   $(window).on('resize', function() {
     // Destruir el carrusel actual
     $('.exclusive-columnas').slick('unslick');
-    
+    setFlexDisplay()
     // Volver a inicializar el carrusel con las nuevas opciones
     initSlick();
   });
