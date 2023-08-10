@@ -227,7 +227,7 @@ $(".testimonials-slider").slick({
   slidesToShow: 3,
   slidesToScroll: 1,
   autoplay: true,
-  autoplaySpeed: 2000,
+  autoplaySpeed: 1500,
   responsive: [
     {
       breakpoint: 1024,
@@ -244,6 +244,34 @@ $(".testimonials-slider").slick({
   ]
 });
 
+//blog
+$(".blog > div").slick({
+  slidesToShow: 4,
+  slidesToScroll: 1,
+  autoplay: false,
+  autoplaySpeed: 1500,
+  responsive: [
+    {
+      breakpoint: 1200,
+      settings: {
+        slidesToShow: 3,
+      }
+    },
+    {
+      breakpoint: 800,
+      settings: {
+        slidesToShow: 2,
+      }
+    },
+    {
+      breakpoint: 450,
+      settings: {
+        slidesToShow: 1,
+      }
+    }
+  ]
+});
+
 function setFlexDisplay() {
   const navegador = document.querySelector('#navegador')
   window.innerWidth >= 1000 ? navegador.classList.add('colapse') : navegador.classList.remove('colapse')
@@ -251,6 +279,7 @@ function setFlexDisplay() {
 }
 
   // Inicializar el carrusel
+  
   initSlick();
 
   // Volver a inicializar el carrusel cuando la ventana cambia de tamaño
@@ -290,4 +319,7 @@ $('#galleryModal').on('click', (event) => {
   }
 })
 
-
+window.onload = function() {
+  const preloader = document.getElementById('preload');
+  preloader.style.display = 'none';
+};
