@@ -114,12 +114,12 @@ body {
   justify-content: space-around;
   width: 100%;
   z-index: 999;
-  padding: 0rem 1rem;
+  padding: .5rem 1rem;
   position: fixed;
   top: 0px;
   & > div > img {
-    color: var(--c-blanco-suave);
-    filter: drop-shadow(1px 1px 1px var(--c-blanco-suave));
+    color: white;
+    filter: drop-shadow(1px 1px 1px var(--c-negro));
   }
   & > ul {
 
